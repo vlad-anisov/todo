@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="todo_page_form" model="ir.ui.view">
+        <field name="name">todo.page.form</field>
+        <field name="model">todo.page</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <label for="description" string=" "/>
+                    <div class="o_row">
+                        <field name="description" placeholder="Message" widget="enter_confirm"/>
+                        <button name="add_task" string="ADD" type="object" class="btn-primary"/>
+                    </div>
+                    <div/>
+                    <div id="tasks" class="d-flex justify-content-center" style="width:100%;">
+                        <h1>Tasks</h1>
+                    </div>
+                    <field name="line_ids" string=" ">
+                        <tree create="0" editable="top" default_order="sequence desc, id desc">
+                            <field name="sequence" widget="handle" nolabel="1"/>
+                            <field name="description" string="Tasks" readonly="1" class="text-left" nolabel="1"/>
+                        </tree>
+                     </field>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="todo_page_action" model="ir.actions.act_window">
+        <field name="name">TODO</field>
+        <field name="res_model">todo.page</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="res_id">1</field>
+        <field name="context">{'no_breadcrumbs': True}</field>
+    </record>
+
+    <menuitem id="menu_import_root" name="TODO" action="todo_page_action" sequence="20"/>
+
+</odoo>

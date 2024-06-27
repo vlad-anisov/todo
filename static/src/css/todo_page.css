@@ -1,0 +1,9 @@
+.o_cell:has(#tasks) {
+  width: 100% !important;
+}
+.o_control_panel{
+  display:none !important;
+}
+.o_navbar{
+  display:none !important;
+}
